@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiv Shakti Soda</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('drink.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-color: #f9f9f9; /* Fallback color if the image is not available */
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            position: relative;
+        }
+        .soda-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .soda-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px;
+            background-color: rgba(255, 255, 255, 0.8); /* Background color with opacity */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .soda-name {
+            font-size: 18px;
+            color: #333;
+        }
+        .soda-price {
+            font-size: 18px;
+            color: #009011;
+        }
+        h4 {
+            text-align: center;
+            font-family: 'Racing Sans One', sans-serif;
+            color: #36383a;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Background color with opacity */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4 class="mb-5">Shiva Shakti Soda</h4>
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="soda-list">
+                    <!-- Soda items will be dynamically added here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Array of soda objects with name, price, and image URL
+        const sodas = [
+            { name: 'Coca-Cola', price: '₹1.50', image: 'url_to_coca_cola_image.jpg' },
+            { name: 'Pepsi', price: '₹1.50', image: 'url_to_pepsi_image.jpg' },
+            { name: 'Sprite', price: '₹1.25', image: 'url_to_sprite_image.jpg' },
+            { name: 'Fanta', price: '₹1.25', image: 'url_to_fanta_image.jpg' },
+            { name: 'Dr Pepper', price: '₹1.75', image: 'url_to_dr_pepper_image.jpg' }
+            // Add more soda objects with image URLs as needed
+        ];
+
+        // Function to populate the soda list
+        function populateSodaList() {
+            const sodaList = document.querySelector('.soda-list');
+            sodas.forEach(soda => {
+                const listItem = document.createElement('li');
+                listItem.classList.add('soda-item', 'd-flex', 'justify-content-between', 'align-items-center');
+                listItem.innerHTML = `
+                    <span class="soda-name">${soda.name}</span>
+                    <span class="soda-price">${soda.price}</span>
+                `;
+                sodaList.appendChild(listItem);
+            });
+        }
+
+        // Call the function to populate the soda list when the page loads
+        window.onload = populateSodaList;
+    </script>
+</body>
+</html>
